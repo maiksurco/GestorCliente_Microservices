@@ -1,0 +1,32 @@
+server:
+  port: 8080
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8089/eureka
+  instance:
+    hostname: localhost
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enable: true
+      routes:
+        - id: socio-service
+          uri: lb://socio-service
+          predicates:
+            - Path=/socio/**
+        - id: workers-service
+          uri: lb://workers-service
+          predicates:
+            - Path=/workers/**
+        - id: servicio-service
+          uri: lb://servicio-service
+          predicates:
+            - Path=/servicio/**
+        - id: ms-producto-service
+          uri: lb://producto-service
+          predicates:
+            - Path=/categoria/**,/producto/**
