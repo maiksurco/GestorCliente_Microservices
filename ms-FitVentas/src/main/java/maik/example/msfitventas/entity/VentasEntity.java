@@ -3,6 +3,7 @@ package maik.example.msfitventas.entity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
+
 import java.util.List;
 import java.util.Date;
 @Entity
