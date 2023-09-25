@@ -3,6 +3,7 @@ package maik.example.msfitventas.entity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
+import maik.example.msfitventas.dto.Socio;
 
 import java.util.List;
 import java.util.Date;
@@ -23,5 +24,7 @@ public class VentasEntity {
     @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "venta_id")
-    private List<VentaDetalle> detalle;
+    private List<VentaDetalle> ventaDetalles;
+    @Transient
+    private Socio socio;
 }
