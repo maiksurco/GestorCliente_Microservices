@@ -30,7 +30,7 @@ spring:
           uri: lb://servicio-service
           predicates:
             - Path=/servicio/**
-        - id: ms-producto-service
-          uri: lb://producto-service
+        - id: prodcat-service
+          uri: lb://prodcat-service
           predicates:
             - Path=/categoria/**,/producto/**
