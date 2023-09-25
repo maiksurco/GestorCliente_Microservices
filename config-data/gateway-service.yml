@@ -26,10 +26,10 @@ spring:
           uri: lb://workers-service
           predicates:
             - Path=/workers/**
-        - id: servicio-service
-          uri: lb://servicio-service
+        - id: servicios-service
+          uri: lb://servicios-service
           predicates:
-            - Path=/servicio/**
+            - Path=/servicios/**
         - id: prodcat-service
           uri: lb://prodcat-service
           predicates:
