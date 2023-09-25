@@ -8,11 +8,11 @@
         <version>3.1.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>maik.example</groupId>
-    <artifactId>ms-FitVentas</artifactId>
+    <groupId>elroy.example</groupId>
+    <artifactId>ms-servicios</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>ms-FitVentas</name>
-    <description>ms-FitVentas</description>
+    <name>ms-servicios</name>
+    <description>ms-servicios</description>
     <properties>
         <java.version>17</java.version>
         <spring-cloud.version>2022.0.2</spring-cloud.version>
@@ -43,11 +43,6 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-            <version>4.0.3</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
             <version>4.0.3</version>
         </dependency>
         <dependency>
@@ -84,5 +79,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

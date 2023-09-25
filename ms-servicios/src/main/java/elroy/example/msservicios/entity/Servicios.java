@@ -1,4 +1,4 @@
-package maik.example.mssocios.entity;
+package elroy.example.msservicios.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,14 +8,14 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Socio {
+public class Servicios {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nombre;
-    private String apellido;
-    private String edad;
-    private Integer dni;
-    private Integer numero;
-    private String correo;
+    private Double precio;
+    private String duracion;
+    private String disponibilidad;
+    private String descripcion;
+
 }
