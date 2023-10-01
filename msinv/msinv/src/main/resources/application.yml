@@ -1,6 +1,6 @@
 spring:
   application:
-    name: msinv
+    name: msinv-service
   profiles:
     active: development
   config:
