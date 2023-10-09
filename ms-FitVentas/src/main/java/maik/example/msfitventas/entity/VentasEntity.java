@@ -24,7 +24,7 @@ public class VentasEntity {
     @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "venta_id")
-    private List<VentaDetalle> ventaDetalles;
+    private List<VentaDetalle> Detalles;
     @Transient
     private Socio socio;
 }

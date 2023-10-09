@@ -1,4 +1,5 @@
 package maik.example.msfitventas.controller;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import maik.example.msfitventas.entity.VentasEntity;
 import maik.example.msfitventas.service.VentasService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,8 @@ public class VentasController {
     @PutMapping()
     public ResponseEntity<VentasEntity> update(@RequestBody VentasEntity ventasEntity) {
         return ResponseEntity.ok(ventasService.actualizar(ventasEntity));}
+
+    @CircuitBreaker(name = "pedidoListarPorIdCB", fallbackMethod = "fallBackPedidoListarPorIdCB")
     @GetMapping("/{id}")
     public ResponseEntity<VentasEntity> listById(@PathVariable(required = true) Integer id) {
         return ResponseEntity.ok().body(ventasService.listarPorId(id).get());}
@@ -27,4 +30,11 @@ public class VentasController {
     public ResponseEntity<List<VentasEntity>> deleteById(@PathVariable(required = true) Integer id) {
         ventasService.eliminarPorId(id);
         return ResponseEntity.ok(ventasService.listar());}
+
+    private ResponseEntity<VentasEntity> fallBackPedidoListarPorIdCB(@PathVariable(required = true) Integer id, RuntimeException e) {
+        VentasEntity ventasEntity = new VentasEntity();
+        ventasEntity.setId(90000);
+        return ResponseEntity.ok().body(ventasEntity);
+    }
+
 }

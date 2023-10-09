@@ -1,5 +1,6 @@
 package maik.example.mssocios.controller;
 
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import maik.example.mssocios.entity.Socio;
 import maik.example.mssocios.service.SocioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,7 @@ public class SocioController {
         return ResponseEntity.ok(socioService.actualizar(socio));
     }
 
+    @CircuitBreaker(name = "pedidoListarPorIdCB", fallbackMethod = "fallBackPedidoListarPorIdCB")
     @GetMapping("/{id}")
     public ResponseEntity<Socio> listById(@PathVariable(required = true) Integer id) {
         return ResponseEntity.ok().body(socioService.listarPorId(id).get());
@@ -39,4 +41,10 @@ public class SocioController {
         socioService.eliminarPorId(id);
         return ResponseEntity.ok(socioService.listar());
     }
+    private ResponseEntity<Socio> fallBackPedidoListarPorIdCB(@PathVariable(required = true) Integer id, RuntimeException e) {
+        Socio socio = new Socio();
+        socio.setId(90000);
+        return ResponseEntity.ok().body(socio);
+    }
+
 }
