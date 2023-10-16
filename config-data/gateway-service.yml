@@ -16,23 +16,37 @@ spring:
         locator:
           enable: true
       routes:
-        - id: ventas-service
-          uri: lb://ventas-service
-          predicates:
-            - Path=/ventas/**
-        - id: socio-service
-          uri: lb://socio-service
-          predicates:
-            - Path=/socio/**
         - id: workers-service
           uri: lb://workers-service
           predicates:
             - Path=/workers/**
+          filters:
+            -AuthFilter
         - id: servicios-service
           uri: lb://servicios-service
           predicates:
             - Path=/servicios/**
+          filters:
+            -AuthFilter
         - id: prodcat-service
           uri: lb://prodcat-service
           predicates:
             - Path=/categoria/**,/producto/**
+          filters:
+            -AuthFilter
+        - id: ventas-service
+          uri: lb://ventas-service
+          predicates:
+            - Path=/ventas/**
+          filters:
+            -AuthFilter
+        - id: socio-service
+          uri: lb://socio-service
+          predicates:
+            - Path=/socio/**
+          filters:
+            -AuthFilter
+        - id: auth-service
+          uri: lb://auth-service
+          predicates:
+            - Path=/auth/**
