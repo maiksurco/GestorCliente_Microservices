@@ -15,13 +15,12 @@ public class VentaDetalle {
     private Double cantidad;
     private Double precio;
     private Integer productoId;
-    private Integer serviciosId;
-    private Integer workersId;
-
     @Transient
     private Producto producto;
+    private Integer serviciosId;
     @Transient
     private Servicios servicios;
+    private Integer workersId;
     @Transient
     private Workers workers;
 
