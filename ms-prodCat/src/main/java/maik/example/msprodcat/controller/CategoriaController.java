@@ -1,6 +1,7 @@
 package maik.example.msprodcat.controller;
 
 
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import maik.example.msprodcat.entity.Categoria;
 import maik.example.msprodcat.service.CategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,8 @@ public class CategoriaController {
         return ResponseEntity.ok(categoriaService.actualizar(categoria));
     }
 
+    @CircuitBreaker(name = "pedidoListarPorIdCB", fallbackMethod =
+            "fallBackPedidoListarPorIdCB")
     @GetMapping("/{id}")
     public ResponseEntity<Categoria> listById(@PathVariable(required = true) Integer id) {
         return ResponseEntity.ok().body(categoriaService.listarPorId(id).get());
@@ -39,5 +42,12 @@ public class CategoriaController {
     public String deleteById(@PathVariable(required = true) Integer id) {
         categoriaService.eliminarPorId(id);
         return "Eliminacion Correcta";
+    }
+    private ResponseEntity<Categoria>
+    fallBackPedidoListarPorIdCB(@PathVariable(required = true) Integer id,
+                                RuntimeException e) {
+        Categoria categoria = new Categoria();
+        categoria.setId(90000);
+        return ResponseEntity.ok().body(categoria);
     }
 }

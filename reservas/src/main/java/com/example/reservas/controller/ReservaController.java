@@ -2,6 +2,7 @@ package com.example.reservas.controller;
 
 import com.example.reservas.entity.Reserva;
 import com.example.reservas.service.ReservaService;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -29,6 +30,8 @@ public class ReservaController {
         return ResponseEntity.ok(reservaService.actualizar(reserva));
     }
 
+    @CircuitBreaker(name = "pedidoListarPorIdCB", fallbackMethod =
+            "fallBackPedidoListarPorIdCB")
     @GetMapping("/{id}")
     public ResponseEntity<Reserva> listById(@PathVariable(required = true) Integer id) {
         return ResponseEntity.ok().body(reservaService.listarPorId(id).get());
@@ -39,4 +42,12 @@ public class ReservaController {
         reservaService.eliminarPorId(id);
         return ResponseEntity.ok(reservaService.listar());
     }
+
+    private ResponseEntity<Reserva>
+    fallBackPedidoListarPorIdCB(@PathVariable(required = true) Integer id,
+                                RuntimeException e) {
+        Reserva reserva = new Reserva();
+        reserva.setId(90000);
+        return ResponseEntity.ok().body(reserva);}
+
 }

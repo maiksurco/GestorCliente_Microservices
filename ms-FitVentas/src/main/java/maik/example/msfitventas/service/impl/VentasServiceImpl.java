@@ -21,8 +21,6 @@ import java.util.stream.Collectors;
 public class VentasServiceImpl implements VentasService {
     @Autowired
     private VentasRepository ventasRepository;
-
-
     @Autowired
     private ProductoFeign productoFeign;
     @Autowired

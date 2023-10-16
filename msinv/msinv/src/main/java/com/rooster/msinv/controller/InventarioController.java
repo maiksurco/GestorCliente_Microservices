@@ -1,5 +1,6 @@
 package com.rooster.msinv.controller;
 
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -31,6 +32,8 @@ public class InventarioController {
         return ResponseEntity.ok(inventarioService.actualizar(inventario));
     }
 
+    @CircuitBreaker(name = "pedidoListarPorIdCB", fallbackMethod =
+            "fallBackPedidoListarPorIdCB")
     @GetMapping("/{id}")
     public ResponseEntity<Inventario> listById(@PathVariable(required = true) Integer id) {
         return ResponseEntity.ok().body(inventarioService.listarPorId(id).get());
@@ -40,6 +43,13 @@ public class InventarioController {
     public String deleteById(@PathVariable(required = true) Integer id) {
         inventarioService.eliminarPorId(id);
         return "Eliminacion Correcta";
+    }
+    private ResponseEntity<Inventario>
+    fallBackPedidoListarPorIdCB(@PathVariable(required = true) Integer id,
+                                RuntimeException e) {
+        Inventario inventario = new Inventario();
+        inventario.setId(90000);
+        return ResponseEntity.ok().body(inventario);
     }
     
 }
