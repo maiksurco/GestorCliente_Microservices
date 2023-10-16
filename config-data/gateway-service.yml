@@ -21,31 +21,31 @@ spring:
           predicates:
             - Path=/workers/**
           filters:
-            -AuthFilter
+            - AuthFilter
         - id: servicios-service
           uri: lb://servicios-service
           predicates:
             - Path=/servicios/**
           filters:
-            -AuthFilter
+            - AuthFilter
         - id: prodcat-service
           uri: lb://prodcat-service
           predicates:
             - Path=/categoria/**,/producto/**
           filters:
-            -AuthFilter
+            - AuthFilter
         - id: ventas-service
           uri: lb://ventas-service
           predicates:
             - Path=/ventas/**
           filters:
-            -AuthFilter
+            - AuthFilter
         - id: socio-service
           uri: lb://socio-service
           predicates:
             - Path=/socio/**
           filters:
-            -AuthFilter
+            - AuthFilter
         - id: auth-service
           uri: lb://auth-service
           predicates:
