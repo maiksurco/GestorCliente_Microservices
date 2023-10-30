@@ -15,27 +15,36 @@ public class ServiciosController {
     @Autowired
     private ServiciosService serviciosService;
 
+    @CircuitBreaker(name = "serviciosListarAllCB", fallbackMethod =
+            "fallBackServiciosListarAllCB")
     @GetMapping()
     public ResponseEntity<List<Servicios>> list() {
         return ResponseEntity.ok(serviciosService.listar());
     }
 
+    @CircuitBreaker(name = "serviciosCreateCB", fallbackMethod =
+            "fallBackServiciosCreateCB")
     @PostMapping()
     public ResponseEntity<Servicios> save(@RequestBody Servicios servicios) {
         return ResponseEntity.ok(serviciosService.guardar(servicios));
     }
 
+    @CircuitBreaker(name = "serviciosEditCB", fallbackMethod =
+            "fallBackServiciosEditCB")
     @PutMapping()
     public ResponseEntity<Servicios> update(@RequestBody Servicios servicios) {
         return ResponseEntity.ok(serviciosService.actualizar(servicios));
     }
-    @CircuitBreaker(name = "pedidoListarPorIdCB", fallbackMethod =
-            "fallBackPedidoListarPorIdCB")
+
+    @CircuitBreaker(name = "serviciosListarPorIdCB", fallbackMethod =
+            "fallBackServiciosListarPorIdCB")
     @GetMapping("/{id}")
     public ResponseEntity<Servicios> listById(@PathVariable(required = true) Integer id) {
         return ResponseEntity.ok().body(serviciosService.listarPorId(id).get());
     }
 
+    @CircuitBreaker(name = "serviciosDeleteCB", fallbackMethod =
+            "fallBackServiciosDeleteCB")
     @DeleteMapping("/{id}")
     public ResponseEntity<List<Servicios>> deleteById(@PathVariable(required = true) Integer id) {
         serviciosService.eliminarPorId(id);

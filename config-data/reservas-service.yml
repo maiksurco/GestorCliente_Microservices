@@ -28,7 +28,35 @@ eureka:
 
 resilience4j.circuitbreaker:
   instances:
-    pedidoListarPorIdCB:
+    reservasListarPorIdCB:
+      registerHealthIndicator: true
+      slidingWindowSize: 10
+      permittedNumberOfCallsInHalfOpenState: 3
+      slidingWindowType: TIME_BASED
+      minimumNumberOfCalls: 4
+      waitDurationInOpenState: 5s
+    reservasListarAllCB:
+      registerHealthIndicator: true
+      slidingWindowSize: 10
+      permittedNumberOfCallsInHalfOpenState: 3
+      slidingWindowType: TIME_BASED
+      minimumNumberOfCalls: 4
+      waitDurationInOpenState: 5s
+    reservasCreateCB:
+      registerHealthIndicator: true
+      slidingWindowSize: 10
+      permittedNumberOfCallsInHalfOpenState: 3
+      slidingWindowType: TIME_BASED
+      minimumNumberOfCalls: 4
+      waitDurationInOpenState: 5s
+    reservasEditCB:
+      registerHealthIndicator: true
+      slidingWindowSize: 10
+      permittedNumberOfCallsInHalfOpenState: 3
+      slidingWindowType: TIME_BASED
+      minimumNumberOfCalls: 4
+      waitDurationInOpenState: 5s
+    reservasDeleteCB:
       registerHealthIndicator: true
       slidingWindowSize: 10
       permittedNumberOfCallsInHalfOpenState: 3

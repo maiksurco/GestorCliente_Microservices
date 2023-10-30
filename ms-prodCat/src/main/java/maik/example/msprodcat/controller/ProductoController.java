@@ -15,6 +15,8 @@ public class ProductoController {
     @Autowired
     private ProductoService productoService;
 
+    @CircuitBreaker(name = "categoriaListarAllCB", fallbackMethod =
+            "fallBackcategoriaListarAllCB")
     @GetMapping()
     public ResponseEntity<List<Producto>> list() {
 
@@ -22,11 +24,15 @@ public class ProductoController {
 
     }
 
+    @CircuitBreaker(name = "categoriaCreateCB", fallbackMethod =
+            "fallBackcategoriaCreateCB")
     @PostMapping()
     public ResponseEntity<Producto> save(@RequestBody Producto producto) {
         return ResponseEntity.ok(productoService.guardar(producto));
     }
 
+    @CircuitBreaker(name = "categoriaEditCB", fallbackMethod =
+            "fallBackcategoriaEditCB")
     @PutMapping()
     public ResponseEntity<Producto> update(@RequestBody Producto producto) {
         return ResponseEntity.ok(productoService.actualizar(producto));
@@ -39,6 +45,8 @@ public class ProductoController {
         return ResponseEntity.ok().body(productoService.listarPorId(id).get());
     }
 
+    @CircuitBreaker(name = "categoriaDeleteCB", fallbackMethod =
+            "fallBackcategoriaDeleteCB")
     @DeleteMapping("/{id}")
     public String deleteById(@PathVariable(required = true) Integer id) {
         productoService.eliminarPorId(id);

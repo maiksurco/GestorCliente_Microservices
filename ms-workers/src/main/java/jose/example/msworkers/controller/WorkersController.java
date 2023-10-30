@@ -15,29 +15,31 @@ public class WorkersController {
     @Autowired
     private WorkersService workersService;
 
+    @CircuitBreaker(name = "workersListarAllCB", fallbackMethod = "fallBackWorkersListarAllCB")
     @GetMapping()
     public ResponseEntity<List<Workers>> list() {
-
         return ResponseEntity.ok().body(workersService.listar());
-
     }
 
+    @CircuitBreaker(name = "workersCreateCB", fallbackMethod = "fallBackWorkersCreateCB")
     @PostMapping()
     public ResponseEntity<Workers> save(@RequestBody Workers workers) {
         return ResponseEntity.ok(workersService.guardar(workers));
     }
 
+    @CircuitBreaker(name = "workersEditCB", fallbackMethod = "fallBackWorkersEditCB")
     @PutMapping()
     public ResponseEntity<Workers> update(@RequestBody Workers workers) {
         return ResponseEntity.ok(workersService.actualizar(workers));
     }
 
-    @CircuitBreaker(name = "pedidoListarPorIdCB", fallbackMethod = "fallBackPedidoListarPorIdCB")
+    @CircuitBreaker(name = "workersListarPorIdCB", fallbackMethod = "fallBackWorkersListarPorIdCB")
     @GetMapping("/{id}")
     public ResponseEntity<Workers> listById(@PathVariable(required = true) Integer id) {
         return ResponseEntity.ok().body(workersService.listarPorId(id).get());
     }
 
+    @CircuitBreaker(name = "workersDeleteCB", fallbackMethod = "fallBackWorkersDeleteCB")
     @DeleteMapping("/{id}")
     public String deleteById(@PathVariable(required = true) Integer id) {
         workersService.eliminarPorId(id);

@@ -15,16 +15,22 @@ public class ReservaController {
     @Autowired
     private ReservaService reservaService;
 
+    @CircuitBreaker(name = "reservasListarAllCB", fallbackMethod =
+            "fallBackReservasListarAllCB")
     @GetMapping()
     public ResponseEntity<List<Reserva>> list() {
         return ResponseEntity.ok(reservaService.listar());
     }
 
+    @CircuitBreaker(name = "reservasCreateCB", fallbackMethod =
+            "fallBackReservasCreateCB")
     @PostMapping()
     public ResponseEntity<Reserva> save(@RequestBody Reserva reserva) {
         return ResponseEntity.ok(reservaService.guardar(reserva));
     }
 
+    @CircuitBreaker(name = "reservasEditCB", fallbackMethod =
+            "fallBackReservasEditCB")
     @PutMapping()
     public ResponseEntity<Reserva> update(@RequestBody Reserva reserva) {
         return ResponseEntity.ok(reservaService.actualizar(reserva));
@@ -37,6 +43,8 @@ public class ReservaController {
         return ResponseEntity.ok().body(reservaService.listarPorId(id).get());
     }
 
+    @CircuitBreaker(name = "reservasDeleteCB", fallbackMethod =
+            "fallBackReservasDeleteCB")
     @DeleteMapping("/{id}")
     public ResponseEntity<List<Reserva>> deleteById(@PathVariable(required = true) Integer id) {
         reservaService.eliminarPorId(id);

@@ -12,20 +12,28 @@ import java.util.List;
 public class FacturasController {
     @Autowired
     FacturasService ventasService;
+
+    @CircuitBreaker(name = "facturasListarAllCB", fallbackMethod = "fallBackFacturasListarAllCB")
     @GetMapping()
     public ResponseEntity<List<FacturasEntity>> list() {
         return ResponseEntity.ok(ventasService.listar());}
+
+    @CircuitBreaker(name = "facturasCreateCB", fallbackMethod = "fallBackFacturasCreateCB")
     @PostMapping()
     public ResponseEntity<FacturasEntity> save(@RequestBody FacturasEntity ventasEntity) {
         return ResponseEntity.ok(ventasService.guardar(ventasEntity));}
+
+    @CircuitBreaker(name = "facturasEditCB", fallbackMethod = "fallBackFacturasEditCB")
     @PutMapping()
     public ResponseEntity<FacturasEntity> update(@RequestBody FacturasEntity ventasEntity) {
         return ResponseEntity.ok(ventasService.actualizar(ventasEntity));}
 
-    @CircuitBreaker(name = "pedidoListarPorIdCB", fallbackMethod = "fallBackPedidoListarPorIdCB")
+    @CircuitBreaker(name = "facturasListarPorIdCB", fallbackMethod = "fallBackFacturasListarPorIdCB")
     @GetMapping("/{id}")
     public ResponseEntity<FacturasEntity> listById(@PathVariable(required = true) Integer id) {
         return ResponseEntity.ok().body(ventasService.listarPorId(id).get());}
+
+    @CircuitBreaker(name = "facturasDeleteCB", fallbackMethod = "fallBackFacturasDeleteCB")
     @DeleteMapping("/{id}")
     public ResponseEntity<List<FacturasEntity>> deleteById(@PathVariable(required = true) Integer id) {
         ventasService.eliminarPorId(id);
