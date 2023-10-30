@@ -18,7 +18,7 @@ public class CategoriaController {
     private CategoriaService categoriaService;
 
     @CircuitBreaker(name = "categoriaListarAllCB", fallbackMethod =
-            "fallBackcategoriaListarAllCB")
+            "fallBackCategoriaListarAllCB")
     @GetMapping()
     public ResponseEntity<List<Categoria>> list() {
         return ResponseEntity.ok().body(categoriaService.listar());
@@ -32,21 +32,21 @@ public class CategoriaController {
     }
 
     @CircuitBreaker(name = "categoriaEditCB", fallbackMethod =
-            "fallBackcategoriaEditCB")
+            "fallBackCategoriaEditCB")
     @PutMapping()
     public ResponseEntity<Categoria> update(@RequestBody Categoria categoria) {
         return ResponseEntity.ok(categoriaService.actualizar(categoria));
     }
 
     @CircuitBreaker(name = "categoriaListarPorIdCB", fallbackMethod =
-            "fallBackPedidoListarPorIdCB")
+            "fallBackCategoriaListarPorIdCB")
     @GetMapping("/{id}")
     public ResponseEntity<Categoria> listById(@PathVariable(required = true) Integer id) {
         return ResponseEntity.ok().body(categoriaService.listarPorId(id).get());
     }
 
     @CircuitBreaker(name = "categoriaDeleteCB", fallbackMethod =
-            "fallBackcategoriaDeleteCB")
+            "fallBackCategoriaDeleteCB")
     @DeleteMapping("/{id}")
     public String deleteById(@PathVariable(required = true) Integer id) {
         categoriaService.eliminarPorId(id);
@@ -59,17 +59,17 @@ public class CategoriaController {
         categoria.setId(90000);
         return ResponseEntity.ok().body(categoria);
     }
-    private ResponseEntity<String> fallBackcategoriaCreateCB(Categoria categoria, RuntimeException e) {
+    private ResponseEntity<String> fallBackCategoriaCreateCB(Categoria categoria, RuntimeException e) {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al crear el pedido.");
     }
 
-    private ResponseEntity<String> fallBackPedidoEditCB(Integer id, Categoria pedido, RuntimeException e) {
+    private ResponseEntity<String> fallBackCategoriaEditCB(Integer id, Categoria categoria, RuntimeException e) {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al editar el pedido con ID: " + id);
     }
 
     // Fallback method para la operación de eliminación
 
-    private  ResponseEntity<String> fallBackPedidoDeleteCB(Integer id, RuntimeException e){
+    private  ResponseEntity<String> fallBackCategoriaDeleteCB(Integer id, RuntimeException e){
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al eliminar el pedido con ID: " +id);
     }
 }
