@@ -5,6 +5,7 @@ import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import maik.example.msprodcat.entity.Categoria;
 import maik.example.msprodcat.service.CategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -58,4 +59,18 @@ public class CategoriaController {
         categoria.setId(90000);
         return ResponseEntity.ok().body(categoria);
     }
+    private ResponseEntity<String> fallBackcategoriaCreateCB(Categoria categoria, RuntimeException e) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al crear el pedido.");
+    }
+
+    private ResponseEntity<String> fallBackPedidoEditCB(Integer id, Categoria pedido, RuntimeException e) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al editar el pedido con ID: " + id);
+    }
+
+    // Fallback method para la operación de eliminación
+
+    private  ResponseEntity<String> fallBackPedidoDeleteCB(Integer id, RuntimeException e){
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al eliminar el pedido con ID: " +id);
+    }
 }
+
