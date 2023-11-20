@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* --screen-size: 100%; */
+  --screen-width: 100%;
+  --screen-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f0f2f5;
+  /* otroo */
+  /* width: var(--screen-size);
+  height: var(--screen-size); */
+  /* Resto de los estilos */
+  width: var(--screen-width);
+  height: var(--screen-height);
+}
+.mobile-style {
+   /* Estilos para el modo de celular */
+   width: 700px;
+   height: 1024px;
+   border: 16px solid #000;
+   border-radius: 20px;
+   /* Alineación y posicionamiento */
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   margin-top: 20px;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+
+
+
+
+

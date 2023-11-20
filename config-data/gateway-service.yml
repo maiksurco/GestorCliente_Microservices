@@ -8,13 +8,27 @@ eureka:
   instance:
     #hostname: localhost
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
-
 spring:
   cloud:
     gateway:
+      globalcors:
+          corsConfigurations:
+            '[/**]':
+              allowedOrigins:
+              # - "http://localhost:8080"
+              #puerto de react
+              - "http://localhost:3000"
+              #puerto de laravel
+              - "http://localhost:8000"
+              allowedHeaders: "*"
+              allowedMethods:
+                - GET
+                - POST
+                - PUT
+                - DELETE
       discovery:
         locator:
-          enable: true
+          enabled: true
       routes:
         - id: workers-service
           uri: lb://workers-service

@@ -1,0 +1,95 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ConfigServerApplication<config-server>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "maik.example.configserver.ConfigServerApplication",
+            "projectName": "config-server",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=53313 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=config-server"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-RegistryServerApplication<registry-server>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "maik.example.registryserver.RegistryServerApplication",
+            "projectName": "registry-server",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-GatewayServerApplication<gateway-server>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "maik.example.gatewayserver.GatewayServerApplication",
+            "projectName": "gateway-server",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-MsAuthApplication<ms-auth>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "maik.example.msauth.MsAuthApplication",
+            "projectName": "ms-auth",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-MsSociosApplication<ms-socios>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "maik.example.mssocios.MsSociosApplication",
+            "projectName": "ms-socios",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-MsServiciosApplication<ms-servicios>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "elroy.example.msservicios.MsServiciosApplication",
+            "projectName": "ms-servicios",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-MsProdCatApplication<ms-prodCat>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "maik.example.msprodcat.MsProdCatApplication",
+            "projectName": "ms-prodCat",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-MsinvApplication<msinv>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.rooster.msinv.MsinvApplication",
+            "projectName": "msinv",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-MsWorkersApplication<ms-workers>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "jose.example.msworkers.MsWorkersApplication",
+            "projectName": "ms-workers",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
