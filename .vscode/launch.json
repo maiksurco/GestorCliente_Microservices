@@ -9,6 +9,7 @@
             "projectName": "config-server",
             "args": "",
             "envFile": "${workspaceFolder}/.env",
+<<<<<<< HEAD
             "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=55797 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=config-server"
         },
         {
@@ -32,6 +33,9 @@
             "args": "",
             "envFile": "${workspaceFolder}/.env",
             "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=55847 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=ms-auth"
+=======
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=53313 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=config-server"
+>>>>>>> 9f6b3a100035fd3505f94086f82d0a1f60e5b100
         },
         {
             "type": "java",
@@ -41,6 +45,7 @@
             "mainClass": "maik.example.registryserver.RegistryServerApplication",
             "projectName": "registry-server",
             "args": "",
+<<<<<<< HEAD
             "envFile": "${workspaceFolder}/.env",
             "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=55893 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=registry-server"
         },
@@ -65,6 +70,29 @@
             "args": "",
             "envFile": "${workspaceFolder}/.env",
             "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=56093 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=msinv"
+=======
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-GatewayServerApplication<gateway-server>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "maik.example.gatewayserver.GatewayServerApplication",
+            "projectName": "gateway-server",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-MsAuthApplication<ms-auth>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "maik.example.msauth.MsAuthApplication",
+            "projectName": "ms-auth",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+>>>>>>> 9f6b3a100035fd3505f94086f82d0a1f60e5b100
         },
         {
             "type": "java",
@@ -74,8 +102,12 @@
             "mainClass": "maik.example.mssocios.MsSociosApplication",
             "projectName": "ms-socios",
             "args": "",
+<<<<<<< HEAD
             "envFile": "${workspaceFolder}/.env",
             "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=56054 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=ms-socios"
+=======
+            "envFile": "${workspaceFolder}/.env"
+>>>>>>> 9f6b3a100035fd3505f94086f82d0a1f60e5b100
         },
         {
             "type": "java",
@@ -85,6 +117,7 @@
             "mainClass": "elroy.example.msservicios.MsServiciosApplication",
             "projectName": "ms-servicios",
             "args": "",
+<<<<<<< HEAD
             "envFile": "${workspaceFolder}/.env",
             "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=56029 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=ms-servicios"
         },
@@ -117,6 +150,27 @@
             "cwd": "${workspaceFolder}",
             "mainClass": "com.example.reservas.ReservasApplication",
             "projectName": "reservas",
+=======
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-MsProdCatApplication<ms-prodCat>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "maik.example.msprodcat.MsProdCatApplication",
+            "projectName": "ms-prodCat",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-MsinvApplication<msinv>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.rooster.msinv.MsinvApplication",
+            "projectName": "msinv",
+>>>>>>> 9f6b3a100035fd3505f94086f82d0a1f60e5b100
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         },
