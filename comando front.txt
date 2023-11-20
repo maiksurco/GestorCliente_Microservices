@@ -1,0 +1,4 @@
+npm install --legacy-peer-deps
+npm install --force
+npm install -g npm
+npm start

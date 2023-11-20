@@ -14,6 +14,7 @@ public class Workers {
     private String nombre;
     private String apellido;
     private String dni;
+    private String sexo;
     private String area;
     private String fechaNacimiento;
 }

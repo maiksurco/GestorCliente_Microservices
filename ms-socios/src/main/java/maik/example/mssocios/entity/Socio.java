@@ -15,6 +15,7 @@ public class Socio {
     private String nombre;
     private String apellido;
     private String edad;
+    private String sexo;
     private Double dni;
     private Double numero;
     private String correo;
