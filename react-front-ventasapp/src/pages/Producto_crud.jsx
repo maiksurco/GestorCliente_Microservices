@@ -202,7 +202,11 @@ const Cproductos = () => {
 
     const contenidoModal = (
 
+<<<<<<< HEAD
+        <div className="px-6 py-6 mx-2 mt-2 mb-2 text-left bg-black   shadow-slate-400 shadow-md">
+=======
         <div className="px-6 py-6 mx-2 mt-2 mb-2 text-left bg-white   shadow-slate-400 shadow-md">
+>>>>>>> 9f6b3a100035fd3505f94086f82d0a1f60e5b100
             <div className="flex justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-20 h-20 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path d="M12 14l9-5-9-5-9 5 9 5z" />
@@ -310,9 +314,15 @@ const Cproductos = () => {
 
                 <div class="flex flex-wrap -mx-3">
                     <div class="flex-none w-full max-w-full px-3">
+<<<<<<< HEAD
+                        <div class="flex flex-col min-w-0 mb-6 break-words bg-black border-0 border-transparent border-solid shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border">
+                            <div class="p-6 pb-0 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
+                                <h6 class="dark:text-white font-bold">Lista De Productos</h6>
+=======
                         <div class="flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border">
                             <div class="p-6 pb-0 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
                                 <h6 class="dark:text-white font-bold">Lista De productos</h6>
+>>>>>>> 9f6b3a100035fd3505f94086f82d0a1f60e5b100
                             </div>
                             <div class="flex-auto px-0 pt-0 pb-2">
                                 <div class="p-0 overflow-x-auto ps">
