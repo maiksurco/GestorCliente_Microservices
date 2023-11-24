@@ -13,9 +13,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-@CrossOrigin(origins = "http://localhost:3000")
+
 @RestController
 @RequestMapping("/socio")
+@CrossOrigin(origins = "http://localhost:3000")
 public class SocioController {
     @Autowired
     private SocioService socioService;
