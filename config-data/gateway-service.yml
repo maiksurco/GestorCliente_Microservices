@@ -15,7 +15,8 @@ spring:
           corsConfigurations:
             '[/**]':
               allowedOrigins:
-              # - "http://localhost:8080"
+              # puerto spring
+              - "http://localhost:8080"
               #puerto de react
               - "http://localhost:3000"
               #puerto de laravel
