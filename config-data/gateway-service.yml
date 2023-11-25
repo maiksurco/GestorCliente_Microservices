@@ -59,8 +59,7 @@ spring:
           uri: lb://socio-service
           predicates:
             - Path=/socio/**
-          filters:
-            - AuthFilter
+
         - id: auth-service
           uri: lb://auth-service
           predicates:
