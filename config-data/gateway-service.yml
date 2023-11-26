@@ -35,14 +35,14 @@ spring:
           uri: lb://workers-service
           predicates:
             - Path=/workers/**
-          filters:
-            - AuthFilter
+          #filters:
+            #- AuthFilter
         - id: servicios-service
           uri: lb://servicios-service
           predicates:
             - Path=/servicios/**
-          filters:
-            - AuthFilter
+          #filters:
+            #- AuthFilter
         - id: prodcat-service
           uri: lb://prodcat-service
           predicates:
@@ -53,8 +53,8 @@ spring:
           uri: lb://ventas-service
           predicates:
             - Path=/ventas/**
-          filters:
-            - AuthFilter
+          #filters:
+            #- AuthFilter
         - id: socio-service
           uri: lb://socio-service
           predicates:

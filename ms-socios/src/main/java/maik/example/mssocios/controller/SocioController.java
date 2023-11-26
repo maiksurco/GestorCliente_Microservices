@@ -16,7 +16,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/socio")
-@CrossOrigin(origins = "http://localhost:3000/admin/socio")
+@CrossOrigin(origins = "http://localhost:3000")
 public class SocioController {
     @Autowired
     private SocioService socioService;
